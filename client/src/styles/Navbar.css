@@ -27,3 +27,9 @@
 .nav-link:hover {
   text-shadow: 0 0 5px #00ff00;
 }
+.genre-filter {
+  width: fit-content;
+  margin-bottom: -10px;
+  margin-right: 100px;
+  padding: 5px;
+}
