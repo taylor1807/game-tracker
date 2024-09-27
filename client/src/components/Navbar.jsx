@@ -33,6 +33,7 @@ export default function Navbar({ selectedGenre, setSelectedGenre }) {
           </Link>
         </li>
       </ul>
+      <h2>My Game List</h2>
       <select
         value={selectedGenre}
         onChange={(event) => setSelectedGenre(event.target.value)}
