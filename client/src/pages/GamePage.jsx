@@ -9,7 +9,9 @@ export default function GamePage() {
   // Fetch the game details when the component is mounted
   useEffect(() => {
     const fetchGame = async () => {
-      const response = await fetch(`http://localhost:8080/games/${id}`);
+      const response = await fetch(
+        `https://game-tracker-server-1aqv.onrender.com/games/${id}`
+      );
       const data = await response.json();
       setGame(data);
     };
@@ -19,19 +21,24 @@ export default function GamePage() {
 
   // Function to handle liking a game
   const handleLike = async () => {
-    await fetch(`http://localhost:8080/games/${id}/like`, {
-      method: "POST",
-    });
+    await fetch(
+      `https://game-tracker-server-1aqv.onrender.com/games/${id}/like`,
+      {
+        method: "POST",
+      }
+    );
 
     // Re-fetch the full game details to update the state
-    const response = await fetch(`http://localhost:8080/games/${id}`);
+    const response = await fetch(
+      `https://game-tracker-server-1aqv.onrender.com/games/${id}`
+    );
     const updatedGame = await response.json();
     setGame(updatedGame); // Update the game with the new like count and full details
   };
 
   // Function to handle deleting a game
   const handleDelete = async () => {
-    await fetch(`http://localhost:8080/games/${id}`, {
+    await fetch(`https://game-tracker-server-1aqv.onrender.com/games/${id}`, {
       method: "DELETE",
     });
     navigate("/"); // Redirect to homepage after deletion

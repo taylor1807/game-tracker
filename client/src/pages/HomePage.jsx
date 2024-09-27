@@ -7,7 +7,9 @@ export default function HomePage() {
 
   useEffect(() => {
     const fetchGames = async () => {
-      const response = await fetch("http://localhost:8080/games");
+      const response = await fetch(
+        "https://game-tracker-server-1aqv.onrender.com/games"
+      );
       const data = await response.json();
       setGames(data);
       //console.log(data)

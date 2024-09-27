@@ -11,7 +11,7 @@ export default function NewPostPage() {
   const handleFormSubmit = async (formData) => {
     try {
       //console.log(formData)
-      await fetch("http://localhost:8080/games", {
+      await fetch("https://game-tracker-server-1aqv.onrender.com/games", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

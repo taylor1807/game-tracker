@@ -13,7 +13,9 @@ export default function GameForm({ onSubmit }) {
   // Fetching the genres already in the table
   useEffect(() => {
     const fetchGenres = async () => {
-      const response = await fetch("http://localhost:8080/genres");
+      const response = await fetch(
+        "https://game-tracker-server-1aqv.onrender.com/genres"
+      );
       const data = await response.json();
       setGenres(data);
       // console.log(data)
@@ -24,11 +26,14 @@ export default function GameForm({ onSubmit }) {
   // Add a new genre to the table
   const handleAddNewGenre = async () => {
     try {
-      const response = await fetch("http://localhost:8080/genres", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: newGenre }),
-      });
+      const response = await fetch(
+        "https://game-tracker-server-1aqv.onrender.com/genres",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name: newGenre }),
+        }
+      );
       const data = await response.json();
       setGenres((prevGenres) => [...prevGenres, data]);
       setSelectedGenre(data.id);
