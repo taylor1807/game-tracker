@@ -20,14 +20,28 @@ app.get("/", function (request, response) {
 
 // get route to display a list of all games and genres
 app.get("/games", async (request, response) => {
+  const { genre } = request.query; // Get genre filter from the query parameters
+
   try {
-    const result = await db.query(`
+    let query = `
       SELECT games.*, genres.name as genre_name 
       FROM games 
       JOIN genres ON games.genre_id = genres.id
-        ORDER BY games.id ASC
-    `);
-    //console.log(result.rows)
+    `;
+
+    const params = [];
+
+    if (genre) {
+      query += ` WHERE games.genre_id = $1`;
+      params.push(genre); // Add genre to the query parameters
+    }
+
+    query += ` ORDER BY games.id ASC`;
+
+    const result = genre
+      ? await db.query(query, params)
+      : await db.query(query);
+
     response.json(result.rows);
   } catch (error) {
     console.error(error.message);
