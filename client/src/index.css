@@ -1,0 +1,151 @@
+/* Center everything vertically and horizontally */
+body,
+html {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: #0f0f0f;
+  font-family: "Courier New", Courier, monospace;
+  color: #00ff00;
+}
+
+.container {
+  max-width: 1200px; /* Adjust the max-width to balance content */
+  width: 90%; /* Ensure it scales down on smaller screens */
+  padding: 30px;
+  background-color: #0f0f0f;
+  border: 2px solid #00ff00;
+  margin: 20px auto;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #00ff00;
+  text-align: center;
+}
+
+a {
+  color: #00ff00;
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 0 0 5px #00ff00;
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid #00ff00;
+  color: #00ff00;
+  padding: 12px 24px; /* Increase padding for larger buttons */
+  cursor: pointer;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 16px; /* Larger font size */
+  transition: 0.3s ease-in-out;
+  margin: 10px 5px;
+}
+
+button:hover {
+  background-color: #00ff00;
+  color: #0f0f0f;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  background-color: #0f0f0f;
+  color: #00ff00;
+  border: 2px solid #00ff00;
+  padding: 15px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #00ff00;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  border-bottom: 1px solid #00ff00;
+  padding: 15px;
+}
+
+/* Media Queries to handle larger screens and make everything bigger */
+@media (min-width: 1024px) {
+  body,
+  html {
+    font-size: 18px;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  .container {
+    padding: 40px;
+    max-width: 90%; /* Keep content readable without overflow */
+  }
+
+  button {
+    font-size: 18px;
+    padding: 16px 32px;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 20px;
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1440px) {
+  body,
+  html {
+    font-size: 20px;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+
+  h2 {
+    font-size: 42px;
+  }
+
+  .container {
+    padding: 50px;
+    max-width: 80%; /* Larger but still within screen limits */
+  }
+
+  button {
+    font-size: 20px;
+    padding: 20px 40px;
+  }
+
+  input,
+  textarea,
+  select {
+    padding: 25px;
+    font-size: 20px;
+  }
+}

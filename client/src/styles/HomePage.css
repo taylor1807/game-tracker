@@ -1,0 +1,40 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 80px;
+}
+
+@media (max-width: 1024px) {
+  .home-page {
+    padding-top: 70px;
+  }
+}
+
+.games-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  border: 2px solid #00ff00;
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+  overflow-y: auto;
+
+  /*was having issues with the list hiding under the navbar this was a lifesaver */
+  max-height: calc(100vh - 160px);
+}
+
+@media (min-width: 1024px) {
+  .games-list {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .games-list {
+    padding: 40px;
+  }
+}
