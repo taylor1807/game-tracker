@@ -10,7 +10,7 @@ export default function GameForm({ onSubmit }) {
   const [newGenre, setNewGenre] = useState("");
   const [addGenre, setAddGenre] = useState(false);
 
-  // Fetching the genres already in the table
+  // fetch the genres already in the table
   useEffect(() => {
     const fetchGenres = async () => {
       const response = await fetch(
@@ -23,7 +23,7 @@ export default function GameForm({ onSubmit }) {
     fetchGenres();
   }, []);
 
-  // Add a new genre to the table
+  // add a new genre to the table
   const handleAddNewGenre = async () => {
     try {
       const response = await fetch(
@@ -41,7 +41,7 @@ export default function GameForm({ onSubmit }) {
       setAddGenre(false);
       //console.log(data)
     } catch (error) {
-      console.error("There was an error adding the genre:", error);
+      console.error(error);
     }
   };
 

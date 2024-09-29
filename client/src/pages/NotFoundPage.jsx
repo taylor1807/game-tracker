@@ -2,7 +2,7 @@ import "../styles/NotFoundPage.css";
 import { Link } from "react-router-dom";
 
 export default function NotFoundPage() {
-  //console.log("notfoundpage success")
+  // console.log("notfoundpage success");
   return (
     <div className="container">
       <h1>404 - Not Found</h1>

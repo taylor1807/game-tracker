@@ -1,6 +1,5 @@
 import "../styles/NewPostPage.css";
 //found this on the reactRouter docs to auto navigate to the homepage after form submission
-
 import { useNavigate } from "react-router-dom";
 
 import GameForm from "../components/GameForm";
@@ -19,7 +18,7 @@ export default function NewPostPage() {
       //console.log("succesfull")
       navigate("/");
     } catch (error) {
-      console.error("there was a problem submitting the form:", error);
+      console.error(error);
     }
   };
 

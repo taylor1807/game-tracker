@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+//found this on the reactRouter docs to auto navigate to the homepage after form submission
 import { useParams, useNavigate } from "react-router-dom";
 
 export default function GamePage() {
@@ -6,7 +7,7 @@ export default function GamePage() {
   const navigate = useNavigate();
   const [game, setGame] = useState(null);
 
-  // Fetch the game details when the component is mounted
+  // fetching the game info
   useEffect(() => {
     const fetchGame = async () => {
       const response = await fetch(
@@ -19,7 +20,7 @@ export default function GamePage() {
     fetchGame();
   }, [id]);
 
-  // Function to handle liking a game
+  // post to like a game
   const handleLike = async () => {
     await fetch(
       `https://game-tracker-server-1aqv.onrender.com/games/${id}/like`,
@@ -28,20 +29,20 @@ export default function GamePage() {
       }
     );
 
-    // Re-fetch the full game details to update the state
+    // fetching details again to update after like
     const response = await fetch(
       `https://game-tracker-server-1aqv.onrender.com/games/${id}`
     );
     const updatedGame = await response.json();
-    setGame(updatedGame); // Update the game with the new like count and full details
+    setGame(updatedGame);
   };
 
-  // Function to handle deleting a game
+  // dlete a ageme post
   const handleDelete = async () => {
     await fetch(`https://game-tracker-server-1aqv.onrender.com/games/${id}`, {
       method: "DELETE",
     });
-    navigate("/"); // Redirect to homepage after deletion
+    navigate("/");
   };
 
   return (

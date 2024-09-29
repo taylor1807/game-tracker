@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar";
 export default function HomePage() {
   const [games, setGames] = useState([]);
   const [selectedGenre, setSelectedGenre] = useState("");
-
+  //fetching game details after applying filter (set a show all in filter to fetch everything)
   useEffect(() => {
     const fetchGames = async () => {
       try {

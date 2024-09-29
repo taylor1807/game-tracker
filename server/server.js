@@ -20,7 +20,7 @@ app.get("/", function (request, response) {
 
 // get route to display a list of all games and genres
 app.get("/games", async (request, response) => {
-  const { genre } = request.query; // Get genre filter from the query parameters
+  const { genre } = request.query;
 
   try {
     let query = `
@@ -28,12 +28,12 @@ app.get("/games", async (request, response) => {
       FROM games 
       JOIN genres ON games.genre_id = genres.id
     `;
-
+    //filtering the games list, and add a sort as the games were returning jumbled
     const params = [];
 
     if (genre) {
       query += ` WHERE games.genre_id = $1`;
-      params.push(genre); // Add genre to the query parameters
+      params.push(genre);
     }
 
     query += ` ORDER BY games.id ASC`;
@@ -74,7 +74,7 @@ app.get("/games/:id", async (request, response) => {
     response.status(500).send("internal server error");
   }
 });
-
+//found returning * from what i have read to return the item just added straight away
 // post route to add a new game
 app.post("/games", async (request, response) => {
   const { title, description, release_year, genre_id } = request.body;

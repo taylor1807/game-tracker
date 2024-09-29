@@ -10,6 +10,7 @@
   width: 100%;
   height: 60px;
   background-color: #0f0f0f;
+  /*needed to add to get the navabar to stay where i wanted*/
   z-index: 1000;
 }
 
